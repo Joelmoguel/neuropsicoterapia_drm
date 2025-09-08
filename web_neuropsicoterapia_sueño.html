@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuropsicoterapia del Sueño - NPS-DRM©</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #f0f9ff, #f0fdfa);
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 64px 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 16px;
+        }
+        
+        .highlight {
+            color: #0d9488;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #475569;
+            margin-bottom: 32px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 8px 16px;
+        }
+        
+        .btn-primary {
+            background-color: #0d9488;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            background-color: #0f766e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: #1e40af;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1e3a8a;
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: 64px 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            color: #1e40af;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .card {
+            background-color: #dbeafe;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            color: #0d9488;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 12px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .testimonials {
+            background-color: #f1f5f9;
+        }
+        
+        .testimonial {
+            background-color: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-author {
+            color: #0d9488;
+            font-weight: 600;
+        }
+        
+        .form-section {
+            background-color: #0d9488;
+            color: white;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-title {
+            font-size: 2rem;
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 16px;
+            border-radius: 8px;
+            border: none;
+            background-color: white;
+            color: #334155;
+            font-size: 1rem;
+        }
+        
+        input:focus, select:focus {
+            outline: 2px solid #0f766e;
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .form-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background-color: #0f766e;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .form-btn.active {
+            background-color: white;
+            color: #0d9488;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 8px;
+            border: none;
+            background-color: white;
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .success-message {
+            background-color: #0f766e;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        footer {
+            background-color: #1e40af;
+            color: white;
+            padding: 32px 0;
+            text-align: center;
+        }
+        
+        .error-message {
+            color: #fecaca;
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.875rem;
+        }
+        
+        .sending {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .form-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <h1>Neuropsicoterapia del Sueño <span class="highlight">NPS-DRM©</span></h1>
+            <p class="subtitle">Transforma tu salud emocional a través del poder del sueño</p>
+            <a href="#atencion" class="btn btn-primary">Solicitar Atención</a>
+            <a href="#diplomado" class="btn btn-secondary">Más Información</a>
+        </div>
+    </header>
+
+    <!-- Scientific Evidence Section -->
+    <section class="evidence">
+        <div class="container">
+            <h2 class="section-title">Fundamentos Científicos</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3 class="card-title">Evidencia Clínica</h3>
+                    <ul>
+                        <li>Estudio con 100 estudiantes aplicando Prueba de Activación Sináptica</li>
+                        <li>Resultados validados con ANOVA y prueba t de Student</li>
+                        <li>Mejora en recuerdo de sueños y procesamiento emocional</li>
+                        <li>Reducción de estrés oxidativo y activación de mecanismos de reparación</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Beneficios Únicos</h3>
+                    <ul>
+                        <li>Sin uso de psicotrópicos que alteren ritmos circadianos</li>
+                        <li>Activación de neuroplasticidad mediante estimulación neurolingüística</li>
+                        <li>Integración de genética, epigenética y neurociencias</li>
+                        <li>Desarrollo de anticipación emocional adaptativa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section style="background-color: #ccfbf1;">
+        <div class="container">
+            <h2 class="section-title">Enfoque Terapéutico</h2>
+            <div class="cards">
+                <div class="card">
+                    <svg class="w-10 h-10" style="color: #0d9488; margin-bottom: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A7.003 7.003 0 0112 3c-2.385 0-4.456.864-6.018 2.284M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <h3 class="card-title">Corteza Prefrontal</h3>
+                    <p>Facilita consolidación de memoria durante sueño REM</p>
+                </div>
+                <div class="card">
+                    <svg class="w-10 h-10" style="color: #0d9488; margin-bottom: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <h3 class="card-title">Procesamiento Temporal</h3>
+                    <p>Integración de información de días/semanas previas</p>
+                </div>
+                <div class="card">
+                    <svg class="w-10 h-10" style="color: #0d9488; margin-bottom: 12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                    </svg>
+                    <h3 class="card-title">Neuroplasticidad</h3>
+                    <p>Reorganización neuronal durante ciclos de sueño</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonios Profesionales</h2>
+            <div class="cards">
+                <div class="testimonial">
+                    <p class="testimonial-text">"El curso me permitió reactivar memorias sanadas y trabajar con cada paciente de forma singular y especial"</p>
+                    <p class="testimonial-author">- Psic. Miriam Mejía Hernández</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Este modelo permite acceder a información oculta en el piloto automático cerebral para resolver conflictos emocionales"</p>
+                    <p class="testimonial-author">- Maestro Joel Moguel Mondragón</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"La aplicación de la Prueba de Activación Sináptica ha revolucionado mi enfoque terapéutico con pacientes de trauma"</p>
+                    <p class="testimonial-author">- Psic. Daniela Gómez Trujillo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diplomado Details -->
+    <section id="diplomado">
+        <div class="container">
+            <h2 class="section-title">Diplomado en Neuropsicoterapia del Sueño y Psicotrauma</h2>
+            <div class="card" style="margin-bottom: 24px;">
+                <h3 class="card-title">Programa de Estudios</h3>
+                <ol style="list-style-type: decimal; padding-left: 20px; margin-top: 12px;">
+                    <li style="margin-bottom: 8px;">Módulo 1: Introducción al Psicotrauma</li>
+                    <li style="margin-bottom: 8px;">Módulo 2: Endolingüística y Sueño</li>
+                    <li style="margin-bottom: 8px;">Módulo 3: Arquitectura del Sueño y Cerebro</li>
+                    <li style="margin-bottom: 8px;">Módulo 4: Neuropsicología de la Imaginación</li>
+                    <li style="margin-bottom: 8px;">Módulo 5: Psicopatología y Sueño</li>
+                    <li style="margin-bottom: 8px;">Módulo 6: Aplicación Práctica de la NPS-DRM</li>
+                </ol>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Beneficios Profesionales</h3>
+                <ul>
+                    <li>Herramienta innovadora para diagnóstico emocional profundo</li>
+                    <li>Método efectivo para terapias breves y profundas</li>
+                    <li>Integración de conocimiento científico y práctica clínica</li>
+                    <li>Acceso a red de profesionales certificados</li>
+                    <li>Formación avalada por Colegio de Neuropsicoterapeutas del Sueño</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Form -->
+    <section id="atencion" class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title" style="color: white; text-align: center;">¿Cómo Deseas Proceder?</h2>
+                
+                <div class="form-buttons">
+                    <button id="btn-attention" class="form-btn active">Solicitar Atención</button>
+                    <button id="btn-diploma" class="form-btn">Más Información</button>
+                </div>
+
+                <form id="request-form" class="space-y-6">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="profession" required>
+                            <option value="">Selecciona tu profesión</option>
+                            <option value="psicologo">Psicólogo</option>
+                            <option value="medico">Médico</option>
+                            <option value="estudiante">Estudiante</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <p id="error-message" class="error-message" style="display: none;"></p>
+                    <button type="submit" id="submit-btn" class="submit-btn">Enviar Solicitud</button>
+                    
+                    <div id="success-message" class="success-message" style="display: none;">
+                        ¡Gracias por tu interés! <br>
+                        Tu información ha sido enviada a moguelcnsef@gmail.com
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 NPS-DRM© - Colegio de Neuropsicoterapeutas del Sueño</p>
+            <p>Contacto: moguelcnsef@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnAttention = document.getElementById('btn-attention');
+            const btnDiploma = document.getElementById('btn-diploma');
+            const requestForm = document.getElementById('request-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+            
+            let requestType = 'attention'; // default
+            
+            // Toggle buttons
+            btnAttention.addEventListener('click', function() {
+                requestType = 'attention';
+                btnAttention.classList.add('active');
+                btnDiploma.classList.remove('active');
+            });
+            
+            btnDiploma.addEventListener('click', function() {
+                requestType = 'diploma';
+                btnDiploma.classList.add('active');
+                btnAttention.classList.remove('active');
+            });
+            
+            // Form submission
+            requestForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const profession = document.getElementById('profession').value;
+                
+                // Validate
+                if (!name || !email || !profession) {
+                    errorMessage.textContent = 'Por favor, completa todos los campos';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                
+                if (!/\S+@\S+\.\S+/.test(email)) {
+                    errorMessage.textContent = 'Correo electrónico inválido';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                
+                // Prepare email data
+                const subject = requestType === 'diploma' 
+                    ? "Solicitud de Información - Diplomado NPS-DRM" 
+                    : "Solicitud de Atención Terapéutica NPS-DRM";
+                    
+                const body = `Nombre: ${name}%0AEmail: ${email}%0AProfesión: ${profession}%0ATipo de Solicitud: ${requestType === 'diploma' ? 'Diplomado en Neuropsicoterapia del Sueño' : 'Atención Terapéutica'}%0A%0ADetalles adicionales:%0A`;
+                
+                // Disable submit button and show loading state
+                submitBtn.textContent = 'Enviando...';
+                submitBtn.classList.add('sending');
+                submitBtn.disabled = true;
+                
+                // Use a timeout to ensure the UI updates before opening the mail client
+                setTimeout(() => {
+                    // Open mail client
+                    window.location.href = `mailto:moguelcnsef@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    
+                    // Show success message
+                    requestForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form after a delay
+                    setTimeout(() => {
+                        document.getElementById('name').value = '';
+                        document.getElementById('email').value = '';
+                        document.getElementById('profession').value = '';
+                        requestType = 'attention';
+                        btnAttention.classList.add('active');
+                        btnDiploma.classList.remove('active');
+                    }, 1000);
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
